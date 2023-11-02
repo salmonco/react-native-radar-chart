@@ -1,0 +1,14 @@
+node_modules/
+.bundle/
+__tests__/
+dist/
+.eslintrc.js
+.prettierrc.js
+.watchmanconfig
+Gemfile
+Gemfile.lock
+app.json
+babel.config.js
+jest.config.js
+metro.config.js
+index.js

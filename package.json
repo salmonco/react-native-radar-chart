@@ -1,6 +1,6 @@
 {
   "name": "@salmonco/react-native-radar-chart",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "private": false,
   "license": "MIT",
   "description": "You can draw radar charts easily.",
