@@ -3,12 +3,12 @@ import {View} from 'react-native';
 import Svg, {Circle, Line, Polygon, Text} from 'react-native-svg';
 import {getGradientColors} from './getGradientColors';
 
-type RadarData = {
+export type RadarData = {
   label: string;
   value: number;
 };
 
-type GradientColor = {
+export type GradientColor = {
   startColor: string;
   endColor: string;
   count: number;
@@ -18,7 +18,7 @@ type Props = {
   data: RadarData[];
   size?: number;
   fillColor?: string;
-  fillColorOpacity?: number;
+  fillOpacity?: number;
   gradientColor?: GradientColor;
   stroke?: string[];
   strokeWidth?: number[];
@@ -38,7 +38,7 @@ export default ({
   data,
   size,
   fillColor,
-  fillColorOpacity,
+  fillOpacity,
   gradientColor,
   stroke = [],
   strokeWidth = [],
@@ -100,7 +100,7 @@ export default ({
             strokeOpacity={strokeOpacity[v] ?? 1}
             strokeWidth={strokeWidth[v] ?? 0.5}
             fill={gradients[v] ?? fillColor ?? 'salmon'}
-            fillOpacity={fillColorOpacity ?? 1}
+            fillOpacity={fillOpacity ?? 1}
           />
         ))}
         {Array.from({length: axesCnt}, (_, i) => i).map(v => (
