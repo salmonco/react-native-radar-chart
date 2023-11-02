@@ -16,7 +16,22 @@ const App = () => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <RadarChart data={data} />
+      <RadarChart
+        data={data}
+        gradientColor={{
+          startColor: '#FF9432',
+          endColor: '#FFF8F1',
+          count: 5,
+        }}
+        stroke={['#FFE8D3', '#FFE8D3', '#FFE8D3', '#FFE8D3', '#ff9532']}
+        strokeWidth={[0.5, 0.5, 0.5, 0.5, 1]}
+        strokeOpacity={[1, 1, 1, 1, 0.13]}
+        labelColor="#433D3A"
+        dataFillColor="#FF9432"
+        dataFillOpacity={0.8}
+        dataStroke="salmon"
+        dataStrokeWidth={2}
+      />
     </SafeAreaView>
   );
 };
