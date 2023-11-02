@@ -1,79 +1,93 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# react-native-radar-chart
 
-# Getting Started
+You can draw radar charts easily.
 
->**Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
+## Screenshot
 
-## Step 1: Start the Metro Server
+<img width="306" alt="스크린샷 2023-11-02 오후 4 12 36" src="https://github.com/SWM-GGS/Brain-Vitamin-Frontend-Patient/assets/86469788/8db76863-8afa-43bf-aeb3-01ace8eac785">
 
-First, you will need to start **Metro**, the JavaScript _bundler_ that ships _with_ React Native.
+## Installation
 
-To start Metro, run the following command from the _root_ of your React Native project:
-
-```bash
-# using npm
-npm start
-
-# OR using Yarn
-yarn start
+```
+npm install @salmonco/react-native-radar-chart
 ```
 
-## Step 2: Start your Application
+## Usage
 
-Let Metro Bundler run in its _own_ terminal. Open a _new_ terminal from the _root_ of your React Native project. Run the following command to start your _Android_ or _iOS_ app:
+```typescript
+import React from 'react';
+import {StyleSheet, SafeAreaView} from 'react-native';
+import RadarChart from './lib/RadarChart';
 
-### For Android
+const App = () => {
+  const data = [
+    {label: 'data1', value: 30},
+    {label: 'data2', value: 55},
+    {label: 'data3', value: 70},
+    {label: 'data4', value: 35},
+    {label: 'data5', value: 10},
+    {label: 'data6', value: 60},
+    {label: 'data7', value: 38},
+    {label: 'data8', value: 65},
+  ];
 
-```bash
-# using npm
-npm run android
+  return (
+    <SafeAreaView style={styles.container}>
+      <RadarChart
+        data={data}
+        gradientColor={{
+          startColor: '#FF9432',
+          endColor: '#FFF8F1',
+          count: 5,
+        }}
+        stroke={['#FFE8D3', '#FFE8D3', '#FFE8D3', '#FFE8D3', '#ff9532']}
+        strokeWidth={[0.5, 0.5, 0.5, 0.5, 1]}
+        strokeOpacity={[1, 1, 1, 1, 0.13]}
+        labelColor="#433D3A"
+        dataFillColor="#FF9432"
+        dataFillOpacity={0.8}
+        dataStroke="salmon"
+        dataStrokeWidth={2}
+      />
+    </SafeAreaView>
+  );
+};
 
-# OR using Yarn
-yarn android
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+});
+
+export default App;
 ```
 
-### For iOS
+## Props
 
-```bash
-# using npm
-npm run ios
+|Prop|Description|Type|Default|
+|---|---|---|---|
+|data|Label and value pair data to be displayed on the radar chart|RadarData[]|required|
+|size|Size of radar chart|number|330|
+|fillColor|Color inside chart|string|salmon|
+|fillOpacity|Opacity inside chart|number|1|
+|gradientColor|The gradient color inside the chart|GradientColor|fillColor ?? salmon|
+|stroke|Stroke inside chart|string[]|white|
+|strokeWidth|Width of stroke inside chart|number[]|0.5|
+|strokeOpacity|Opacity of stroke inside chart|number[]|1|
+|labelSize|Size of labels in data|number|16|
+|labelColor|Color of labels in data|string|black|
+|dataFillColor|Color of data area|string|green|
+|dataFillOpacity|Opacity of data area|number|1|
+|dataStroke|Stroke of data area|string|undefined|
+|dataStrokeWidth|Width of stroke of data area|number|1|
+|dataStrokeOpacity|Opacity of stroke of data area|number|1|
 
-# OR using Yarn
-yarn ios
-```
+## Contributing
 
-If everything is set up _correctly_, you should see your new app running in your _Android Emulator_ or _iOS Simulator_ shortly provided you have set up your emulator/simulator correctly.
+Contributions are always welcome!
 
-This is one way to run your app — you can also run it directly from within Android Studio and Xcode respectively.
+## License
 
-## Step 3: Modifying your App
-
-Now that you have successfully run the app, let's modify it.
-
-1. Open `App.tsx` in your text editor of choice and edit some lines.
-2. For **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Developer Menu** (<kbd>Ctrl</kbd> + <kbd>M</kbd> (on Window and Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (on macOS)) to see your changes!
-
-   For **iOS**: Hit <kbd>Cmd ⌘</kbd> + <kbd>R</kbd> in your iOS Simulator to reload the app and see your changes!
-
-## Congratulations! :tada:
-
-You've successfully run and modified your React Native App. :partying_face:
-
-### Now what?
-
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [Introduction to React Native](https://reactnative.dev/docs/getting-started).
-
-# Troubleshooting
-
-If you can't get this to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
-
-# Learn More
-
-To learn more about React Native, take a look at the following resources:
-
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+MIT
