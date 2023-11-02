@@ -1,7 +1,7 @@
 {
-  "name": "react-native-radar-chart",
-  "version": "0.0.1",
-  "private": true,
+  "name": "@salmonco/react-native-radar-chart",
+  "version": "0.0.2",
+  "private": false,
   "license": "MIT",
   "description": "You can draw radar charts easily.",
   "keywords": [
@@ -19,7 +19,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/salmonco/react-connect-line"
+    "url": "https://github.com/salmonco/react-native-radar-chart"
   },
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
