@@ -9,7 +9,7 @@ You can draw radar charts easily.
 ## Installation
 
 ```
-npm install @salmonco/react-native-radar-chart
+npm install @salmonco/react-native-radar-chart react-native-svg
 ```
 
 ## Usage
@@ -66,23 +66,23 @@ export default App;
 
 ## Props
 
-|Prop|Description|Type|Default|
-|---|---|---|---|
-|data|Label and value pair data to be displayed on the radar chart|RadarData[]|required|
-|size|Size of radar chart|number|330|
-|fillColor|Color inside chart|string|salmon|
-|fillOpacity|Opacity inside chart|number|1|
-|gradientColor|The gradient color inside the chart|GradientColor|fillColor ?? salmon|
-|stroke|Stroke inside chart|string[]|white|
-|strokeWidth|Width of stroke inside chart|number[]|0.5|
-|strokeOpacity|Opacity of stroke inside chart|number[]|1|
-|labelSize|Size of labels in data|number|16|
-|labelColor|Color of labels in data|string|black|
-|dataFillColor|Color of data area|string|green|
-|dataFillOpacity|Opacity of data area|number|1|
-|dataStroke|Stroke of data area|string|undefined|
-|dataStrokeWidth|Width of stroke of data area|number|1|
-|dataStrokeOpacity|Opacity of stroke of data area|number|1|
+| Prop              | Description                                                  | Type          | Default             |
+| ----------------- | ------------------------------------------------------------ | ------------- | ------------------- |
+| data              | Label and value pair data to be displayed on the radar chart | RadarData[]   | required            |
+| size              | Size of radar chart                                          | number        | 330                 |
+| fillColor         | Color inside chart                                           | string        | salmon              |
+| fillOpacity       | Opacity inside chart                                         | number        | 1                   |
+| gradientColor     | The gradient color inside the chart                          | GradientColor | fillColor ?? salmon |
+| stroke            | Stroke inside chart                                          | string[]      | white               |
+| strokeWidth       | Width of stroke inside chart                                 | number[]      | 0.5                 |
+| strokeOpacity     | Opacity of stroke inside chart                               | number[]      | 1                   |
+| labelSize         | Size of labels in data                                       | number        | 16                  |
+| labelColor        | Color of labels in data                                      | string        | black               |
+| dataFillColor     | Color of data area                                           | string        | green               |
+| dataFillOpacity   | Opacity of data area                                         | number        | 1                   |
+| dataStroke        | Stroke of data area                                          | string        | undefined           |
+| dataStrokeWidth   | Width of stroke of data area                                 | number        | 1                   |
+| dataStrokeOpacity | Opacity of stroke of data area                               | number        | 1                   |
 
 ## Contributing
 
