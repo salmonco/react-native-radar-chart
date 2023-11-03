@@ -17,7 +17,7 @@ npm install @salmonco/react-native-radar-chart react-native-svg
 ```typescript
 import React from 'react';
 import {StyleSheet, SafeAreaView} from 'react-native';
-import RadarChart from './lib/RadarChart';
+import {RadarChart} from '@salmonco/react-native-radar-chart';
 
 const App = () => {
   const data = [
