@@ -30,6 +30,9 @@ type Props = {
   dataStroke?: string;
   dataStrokeWidth?: number;
   dataStrokeOpacity?: number;
+  divisionStroke?: string;
+  divisionStrokeWidth?: number;
+  divisionStrokeOpacity?: number;
   isCircle?: boolean;
 };
 
@@ -51,6 +54,9 @@ export default ({
   dataStroke,
   dataStrokeWidth,
   dataStrokeOpacity,
+  divisionStroke,
+  divisionStrokeWidth,
+  divisionStrokeOpacity,
   isCircle,
 }: Readonly<Props>) => {
   const axesCnt = data.length;
@@ -101,8 +107,8 @@ export default ({
                 cy={viewBoxCenter}
                 r={(v + 1) * (radius / internalAreaCnt)}
                 stroke={stroke[v] ?? 'white'}
-                strokeOpacity={strokeOpacity[v] ?? 1}
                 strokeWidth={strokeWidth[v] ?? 0.5}
+                strokeOpacity={strokeOpacity[v] ?? 1}
                 fill={gradients[v] ?? fillColor ?? 'salmon'}
                 fillOpacity={fillOpacity ?? 1}
               />
@@ -120,8 +126,8 @@ export default ({
                 key={`polygon_outline_${v}`}
                 points={points}
                 stroke={stroke[v] ?? 'white'}
-                strokeOpacity={strokeOpacity[v] ?? 1}
                 strokeWidth={strokeWidth[v] ?? 0.5}
+                strokeOpacity={strokeOpacity[v] ?? 1}
                 fill={gradients[v] ?? fillColor ?? 'salmon'}
                 fillOpacity={fillOpacity ?? 1}
               />
@@ -135,10 +141,9 @@ export default ({
             y1={calculateEdgePoint(v)[1]}
             x2={calculateEdgePoint(v + axesCnt / 2)[0]}
             y2={calculateEdgePoint(v + axesCnt / 2)[1]}
-            stroke="white"
-            strokeOpacity="0.3"
-            strokeWidth="1"
-            fill="transparent"
+            stroke={divisionStroke ?? 'white'}
+            strokeWidth={divisionStrokeWidth ?? 1}
+            strokeOpacity={divisionStrokeOpacity ?? '0.5'}
           />
         ))}
         <Polygon
