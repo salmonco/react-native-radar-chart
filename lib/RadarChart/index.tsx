@@ -30,6 +30,7 @@ type Props = {
   dataStroke?: string;
   dataStrokeWidth?: number;
   dataStrokeOpacity?: number;
+  isCircle?: boolean;
 };
 
 type Point = [number, number];
@@ -50,6 +51,7 @@ export default ({
   dataStroke,
   dataStrokeWidth,
   dataStrokeOpacity,
+  isCircle,
 }: Readonly<Props>) => {
   const axesCnt = data.length;
   const internalAreaCnt = gradientColor ? gradientColor.count : 4;
@@ -90,19 +92,42 @@ export default ({
         {Array.from(
           {length: internalAreaCnt},
           (_, i) => internalAreaCnt - i - 1,
-        ).map(v => (
-          <Circle
-            key={`circle_outline_${v}`}
-            cx={viewBoxCenter}
-            cy={viewBoxCenter}
-            r={(v + 1) * (radius / internalAreaCnt)}
-            stroke={stroke[v] ?? 'white'}
-            strokeOpacity={strokeOpacity[v] ?? 1}
-            strokeWidth={strokeWidth[v] ?? 0.5}
-            fill={gradients[v] ?? fillColor ?? 'salmon'}
-            fillOpacity={fillOpacity ?? 1}
-          />
-        ))}
+        ).map(v => {
+          if (isCircle) {
+            return (
+              <Circle
+                key={`circle_outline_${v}`}
+                cx={viewBoxCenter}
+                cy={viewBoxCenter}
+                r={(v + 1) * (radius / internalAreaCnt)}
+                stroke={stroke[v] ?? 'white'}
+                strokeOpacity={strokeOpacity[v] ?? 1}
+                strokeWidth={strokeWidth[v] ?? 0.5}
+                fill={gradients[v] ?? fillColor ?? 'salmon'}
+                fillOpacity={fillOpacity ?? 1}
+              />
+            );
+          } else {
+            const points = Array.from({length: axesCnt}, (_, i) => {
+              const edgePoint = calculateEdgePoint(
+                i,
+                (v + 1) / internalAreaCnt,
+              );
+              return `${edgePoint[0]},${edgePoint[1]}`;
+            }).join(' ');
+            return (
+              <Polygon
+                key={`polygon_outline_${v}`}
+                points={points}
+                stroke={stroke[v] ?? 'white'}
+                strokeOpacity={strokeOpacity[v] ?? 1}
+                strokeWidth={strokeWidth[v] ?? 0.5}
+                fill={gradients[v] ?? fillColor ?? 'salmon'}
+                fillOpacity={fillOpacity ?? 1}
+              />
+            );
+          }
+        })}
         {Array.from({length: axesCnt}, (_, i) => i).map(v => (
           <Line
             key={`crosshair_${v}`}

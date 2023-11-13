@@ -31,6 +31,7 @@ const App = () => {
         dataFillOpacity={0.8}
         dataStroke="salmon"
         dataStrokeWidth={2}
+        isCircle
       />
     </SafeAreaView>
   );
