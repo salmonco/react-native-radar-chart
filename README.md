@@ -80,6 +80,7 @@ export default App;
 | strokeOpacity         | Opacity of stroke inside chart                                 | number[]      | 1                   |
 | labelSize             | Size of labels in data                                         | number        | 16                  |
 | labelColor            | Color of labels in data                                        | string        | black               |
+| labelFontFamily       | Font family of labels in data                                  | string        | Inter               |
 | dataFillColor         | Color of data area                                             | string        | green               |
 | dataFillOpacity       | Opacity of data area                                           | number        | 1                   |
 | dataStroke            | Stroke of data area                                            | string        | undefined           |
