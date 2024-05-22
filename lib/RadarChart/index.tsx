@@ -25,6 +25,7 @@ type Props = {
   strokeOpacity?: number[];
   labelSize?: number;
   labelColor?: string;
+  labelFontFamily?: string;
   dataFillColor?: string;
   dataFillOpacity?: number;
   dataStroke?: string;
@@ -49,6 +50,7 @@ export default ({
   strokeOpacity = [],
   labelSize,
   labelColor,
+  labelFontFamily,
   dataFillColor,
   dataFillOpacity,
   dataStroke,
@@ -161,6 +163,7 @@ export default ({
           const edgePoint = calculateEdgePoint(i, 1.15);
           const fontSize = labelSize ?? 16;
           const color = labelColor ?? 'black';
+          const fontFamily = labelFontFamily ?? 'Inter';
           const symmetricY = edgePoint[1] + fontSize / 2;
           return (
             <Text
@@ -169,7 +172,8 @@ export default ({
               y={symmetricY}
               textAnchor="middle"
               fontSize={fontSize}
-              fill={color}>
+              fill={color}
+              fontFamily={fontFamily}>
               {r.label}
             </Text>
           );
