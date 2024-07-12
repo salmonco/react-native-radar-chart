@@ -14,7 +14,7 @@ export type GradientColor = {
   count: number;
 };
 
-type Props = {
+export type RadarChartProps = {
   data: RadarData[];
   size?: number;
   fillColor?: string;
@@ -60,7 +60,7 @@ export default ({
   divisionStrokeWidth,
   divisionStrokeOpacity,
   isCircle,
-}: Readonly<Props>) => {
+}: Readonly<RadarChartProps>) => {
   const axesCnt = data.length;
   const maxValue = Math.max(...data.map(v => v.value));
   const internalAreaCnt = gradientColor ? gradientColor.count : 4;
