@@ -62,6 +62,7 @@ export default ({
   isCircle,
 }: Readonly<Props>) => {
   const axesCnt = data.length;
+  const maxValue = Math.max(...data.map(v => v.value));
   const internalAreaCnt = gradientColor ? gradientColor.count : 4;
   const degreesBetweenAxes = 360 / axesCnt;
   const viewBoxSize = size ?? 330;
@@ -155,7 +156,7 @@ export default ({
           strokeWidth={dataStrokeWidth ?? 1}
           strokeOpacity={dataStrokeOpacity ?? 1}
           points={`${data.map((r, i) => {
-            const edgePoint = calculateEdgePoint(i, r.value / 100);
+            const edgePoint = calculateEdgePoint(i, r.value / maxValue);
             return `${edgePoint[0]},${edgePoint[1]}`;
           })}`}
         />
