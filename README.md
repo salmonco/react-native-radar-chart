@@ -72,6 +72,7 @@ export default App;
 | --------------------- | -------------------------------------------------------------- | ------------- | ------------------- |
 | data                  | Label and value pair data to be displayed on the radar chart   | RadarData[]   | required            |
 | size                  | Size of radar chart                                            | number        | 330                 |
+| scale                 | Adjusts the size of the radar chart. Larger values ​​make the chart larger, while smaller values ​​make the chart smaller. | number | 1 |
 | fillColor             | Color inside chart                                             | string        | salmon              |
 | fillOpacity           | Opacity inside chart                                           | number        | 1                   |
 | gradientColor         | The gradient color inside the chart                            | GradientColor | fillColor ?? salmon |
@@ -81,6 +82,7 @@ export default App;
 | labelSize             | Size of labels in data                                         | number        | 16                  |
 | labelColor            | Color of labels in data                                        | string        | black               |
 | labelFontFamily       | Font family of labels in data                                  | string        | Inter               |
+| labelDistance         | Adjusts the position of the label. Larger values ​​move the labels farther away from the edges of the chart, while smaller values ​​move the labels closer to the center of the chart. | number | 1.15 |
 | dataFillColor         | Color of data area                                             | string        | green               |
 | dataFillOpacity       | Opacity of data area                                           | number        | 1                   |
 | dataStroke            | Stroke of data area                                            | string        | undefined           |
