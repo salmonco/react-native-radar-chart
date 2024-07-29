@@ -26,6 +26,7 @@ export type RadarChartProps = {
   labelSize?: number;
   labelColor?: string;
   labelFontFamily?: string;
+  labelDistance?: number;
   dataFillColor?: string;
   dataFillOpacity?: number;
   dataStroke?: string;
@@ -51,6 +52,7 @@ export default ({
   labelSize,
   labelColor,
   labelFontFamily,
+  labelDistance = 1.15,
   dataFillColor,
   dataFillOpacity,
   dataStroke,
@@ -97,7 +99,7 @@ export default ({
         width: viewBoxSize,
         height: viewBoxSize,
       }}>
-      <Svg height="100%" width="100%">
+      <Svg width="100%" height="100%">
         {Array.from(
           {length: internalAreaCnt},
           (_, i) => internalAreaCnt - i - 1,
@@ -161,7 +163,7 @@ export default ({
           })}`}
         />
         {data.map((r, i) => {
-          const edgePoint = calculateEdgePoint(i, 1.15);
+          const edgePoint = calculateEdgePoint(i, labelDistance);
           const fontSize = labelSize ?? 16;
           const color = labelColor ?? 'black';
           const fontFamily = labelFontFamily ?? 'Inter';
