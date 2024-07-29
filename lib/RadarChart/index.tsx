@@ -17,6 +17,7 @@ export type GradientColor = {
 export type RadarChartProps = {
   data: RadarData[];
   size?: number;
+  scale?: number;
   fillColor?: string;
   fillOpacity?: number;
   gradientColor?: GradientColor;
@@ -42,7 +43,8 @@ type Point = [number, number];
 
 export default ({
   data,
-  size,
+  size = 330,
+  scale = 1,
   fillColor,
   fillOpacity,
   gradientColor,
@@ -67,9 +69,9 @@ export default ({
   const maxValue = Math.max(...data.map(v => v.value));
   const internalAreaCnt = gradientColor ? gradientColor.count : 4;
   const degreesBetweenAxes = 360 / axesCnt;
-  const viewBoxSize = size ?? 330;
+  const viewBoxSize = scale === 0 ? 0 : size / scale;
   const viewBoxCenter = viewBoxSize * 0.5;
-  const radius = viewBoxSize * 0.35;
+  const radius = size * 0.35;
   const gradients = gradientColor
     ? getGradientColors(
         gradientColor.startColor,
@@ -96,10 +98,13 @@ export default ({
   return (
     <View
       style={{
-        width: viewBoxSize,
-        height: viewBoxSize,
+        width: size,
+        height: size,
       }}>
-      <Svg width="100%" height="100%">
+      <Svg
+        width="100%"
+        height="100%"
+        viewBox={`0 0 ${viewBoxSize} ${viewBoxSize}`}>
         {Array.from(
           {length: internalAreaCnt},
           (_, i) => internalAreaCnt - i - 1,
