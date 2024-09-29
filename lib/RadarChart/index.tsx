@@ -144,13 +144,13 @@ export default ({
             );
           }
         })}
-        {Array.from({length: axesCnt}, (_, i) => i).map(v => (
+        {Array.from({length: axesCnt}, (_, i) => (
           <Line
-            key={`crosshair_${v}`}
-            x1={calculateEdgePoint(v)[0]}
-            y1={calculateEdgePoint(v)[1]}
-            x2={calculateEdgePoint(v + axesCnt / 2)[0]}
-            y2={calculateEdgePoint(v + axesCnt / 2)[1]}
+            key={`crosshair_${i}`}
+            x1={viewBoxCenter}
+            y1={viewBoxCenter}
+            x2={calculateEdgePoint(i)[0]}
+            y2={calculateEdgePoint(i)[1]}
             stroke={divisionStroke ?? 'white'}
             strokeWidth={divisionStrokeWidth ?? 1}
             strokeOpacity={divisionStrokeOpacity ?? '0.5'}
