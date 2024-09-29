@@ -36,6 +36,7 @@ const App = () => {
     <SafeAreaView style={styles.container}>
       <RadarChart
         data={data}
+        maxValue={100}
         gradientColor={{
           startColor: '#FF9432',
           endColor: '#FFF8F1',
@@ -73,6 +74,7 @@ export default App;
 | data                  | Label and value pair data to be displayed on the radar chart   | RadarData[]   | required            |
 | size                  | Size of radar chart                                            | number        | 330                 |
 | scale                 | Adjusts the size of the radar chart. Larger values ​​make the chart larger, while smaller values ​​make the chart smaller. | number | 1 |
+| maxValue              | The maximum value of data to display on the radar chart. The end point of the chart is reached when the value of the data corresponds to maxValue. | number | The maximum value among the values ​​of data |
 | fillColor             | Color inside chart                                             | string        | salmon              |
 | fillOpacity           | Opacity inside chart                                           | number        | 1                   |
 | gradientColor         | The gradient color inside the chart                            | GradientColor | fillColor ?? salmon |
