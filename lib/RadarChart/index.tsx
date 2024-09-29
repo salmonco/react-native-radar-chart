@@ -18,6 +18,7 @@ export type RadarChartProps = {
   data: RadarData[];
   size?: number;
   scale?: number;
+  maxValue?: number;
   fillColor?: string;
   fillOpacity?: number;
   gradientColor?: GradientColor;
@@ -45,6 +46,7 @@ export default ({
   data,
   size = 330,
   scale = 1,
+  maxValue = Math.max(...data.map(v => v.value)),
   fillColor,
   fillOpacity,
   gradientColor,
@@ -66,7 +68,6 @@ export default ({
   isCircle,
 }: Readonly<RadarChartProps>) => {
   const axesCnt = data.length;
-  const maxValue = Math.max(...data.map(v => v.value));
   const internalAreaCnt = gradientColor ? gradientColor.count : 4;
   const degreesBetweenAxes = 360 / axesCnt;
   const viewBoxSize = scale === 0 ? 0 : size / scale;
