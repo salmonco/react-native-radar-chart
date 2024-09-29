@@ -85,7 +85,8 @@ export default ({
 
   const calculateEdgePoint = useMemo(() => {
     return (index: number, scale: number = 1): Point => {
-      const degree = index * degreesBetweenAxes;
+      const degree =
+        index * degreesBetweenAxes - degreesBetweenAxes * 0.75 * axesCnt;
       const degreeInRadians = degToRadians(degree);
       const degreeInRadiansY = degToRadians(svgY(degree));
       return [
@@ -93,7 +94,7 @@ export default ({
         viewBoxCenter + Math.sin(degreeInRadiansY) * radius * scale,
       ];
     };
-  }, [viewBoxCenter, radius, degreesBetweenAxes]);
+  }, [viewBoxCenter, radius, degreesBetweenAxes, axesCnt]);
 
   return (
     <View
