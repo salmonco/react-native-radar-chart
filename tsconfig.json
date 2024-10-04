@@ -20,6 +20,6 @@
     "allowSyntheticDefaultImports": true,
     "removeComments": true
   },
-  "include": ["lib"],
+  "include": ["src/lib"],
   "exclude": ["node_modules", "dist"]
 }
