@@ -2,6 +2,8 @@
 
 You can draw radar charts easily.
 
+This library gives you much greater freedom in design customization—covering everything from data and stroke styling to labels and gradients—areas where many existing chart libraries are often restrictive.
+
 ## Screenshot
 
 <img width="306" alt="스크린샷 2023-11-02 오후 4 12 36" src="https://github.com/SWM-GGS/Brain-Vitamin-Frontend-Patient/assets/86469788/8db76863-8afa-43bf-aeb3-01ace8eac785">
