@@ -1,6 +1,6 @@
 import React, {useMemo} from 'react';
 import {View} from 'react-native';
-import Svg, {Circle, Line, Polygon, Text} from 'react-native-svg';
+import Svg, {Circle, Line, Polygon, Text, TSpan} from 'react-native-svg';
 import {getGradientColors} from './getGradientColors';
 
 export type RadarData = {
@@ -174,7 +174,9 @@ export default ({
           const fontSize = labelSize ?? 16;
           const color = labelColor ?? 'black';
           const fontFamily = labelFontFamily ?? 'Inter';
-          const symmetricY = edgePoint[1] + fontSize / 2;
+          const multiLineLabels = r.label.split('\n');
+          const symmetricY =
+            edgePoint[1] - (fontSize * multiLineLabels.length) / 2;
           return (
             <Text
               key={`label_${r.label}`}
@@ -184,7 +186,13 @@ export default ({
               fontSize={fontSize}
               fill={color}
               fontFamily={fontFamily}>
-              {r.label}
+              {multiLineLabels.map((t, index) => {
+                return (
+                  <TSpan key={`${t}-${index}`} x={edgePoint[0]} dy="1em">
+                    {t}
+                  </TSpan>
+                );
+              })}
             </Text>
           );
         })}

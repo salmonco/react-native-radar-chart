@@ -32,6 +32,8 @@ const App = () => {
     {label: 'data6', value: 60},
     {label: 'data7', value: 38},
     {label: 'data8', value: 65},
+    // support \n for multi-line
+    {label: "data\n9", value: 90}
   ];
 
   return (
@@ -73,7 +75,7 @@ export default App;
 
 | Prop                  | Description                                                    | Type          | Default             |
 | --------------------- | -------------------------------------------------------------- | ------------- | ------------------- |
-| data                  | Label and value pair data to be displayed on the radar chart   | RadarData[]   | required            |
+| data                  | Label and value pair data to be displayed on the radar chart (label support \n for multi-line)  | RadarData[]   | required            |
 | size                  | Size of radar chart                                            | number        | 330                 |
 | scale                 | Adjusts the size of the radar chart. Larger values ​​make the chart larger, while smaller values ​​make the chart smaller. | number | 1 |
 | maxValue              | The maximum value of data to display on the radar chart. The end point of the chart is reached when the value of the data corresponds to maxValue. | number | The maximum value among the values ​​of data |
